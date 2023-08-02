@@ -3,6 +3,8 @@ import App from './App.vue'
 // 全局默认样式
 import '@/assets/style/reset.css'
 import '@/assets/style/global.css'
+import '@/assets/style/variable.less'
+import '@/assets/style/method.less'
 
 // 按需引入 element-ui 组件
 import 'element-ui/lib/theme-chalk/index.css'

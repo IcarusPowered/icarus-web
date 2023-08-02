@@ -1,32 +1,29 @@
 <template>
   <div>
     <header>
-      <!-- <router-link to="/login">
-        <span class="login__text">登录</span>
-      </router-link> -->
-      <div class="navbar">
-        <div class="logo">
-          <img src="../assets/images/logo.png" alt="">
-        </div>
-        <el-dropdown trigger="click">
-          <span class="el-dropdown-link">
-            Icarus的项目<i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>xiaoyang的项目</el-dropdown-item>
-            <el-dropdown-item>hanbing的项目</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
-          <el-tab-pane label="导航页签一" name="first"></el-tab-pane>
-          <el-tab-pane label="导航页签二" name="second"></el-tab-pane>
-          <el-tab-pane label="导航页签三" name="third"></el-tab-pane>
-          <el-tab-pane label="导航页签四" name="fourth"></el-tab-pane>
-          <el-tab-pane label="导航页签五" name="fiveth"></el-tab-pane>
-        </el-tabs>
-      </div>
+      <Navbar></Navbar>
     </header>
-    <main>
+    <div class="aside_bar">
+      <el-menu
+        router
+        :default-active="activeIndex"
+        class="el-menu-vertical-demo"
+        background-color="#F5F5F5"
+        text-color="black"
+      >
+        <el-menu-item index="/home/personal/mock" class="aside_bar_mock bar">
+          <div class="active_border" v-show="activeIndex==='/home/personal/mock'"></div>
+          <i class="el-icon-mock"></i>
+          <span slot="title" style="pointer-events: none;">Mock</span>
+        </el-menu-item>
+        <el-menu-item index="/home/personal/interfaces" class="aside_bar_interfaces bar">
+          <div class="active_border" v-show="activeIndex==='/home/personal/interfaces'"></div>
+          <i class="el-icon-interfaces"></i>
+          <span slot="title" style="pointer-events: none;">接口集</span>
+        </el-menu-item>
+      </el-menu>
+    </div>
+    <main class="right">
       <transition appear>
         <router-view :key="$route.path"></router-view>
       </transition>
@@ -35,17 +32,21 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue'
 export default {
   name: 'Home',
-  components: {},
+  components: {
+    Navbar
+  },
   data () {
     // 这里存放数据
     return {
-      activeTab: 'first'
+      activeIndex: this.$route.path
     }
   },
   computed: {},
-  watch: {},
+  watch: {
+  },
   methods: {
   },
   created () {
@@ -54,72 +55,75 @@ export default {
 }
 </script>
 <style scoped lang="less">
-.navbar {
-  position: relative;
-  width: 100%;
-  height: 72px;
-  opacity: 1;
-  background-color: red;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.15);
-  .logo {
-    float: left;
-    margin-left: 20px;
-    img {
-      height: 72px;
-    }
-  }
-}
-.el-icon-arrow-down {
-  font-size: 14px;
-}
-.el-dropdown {
+.aside_bar {
   float: left;
-  margin-left: 50px;
-  .el-dropdown-link {
-    display: inline-block;
+  margin-top: 1px;
+  height: 707px;
+  width: 130px;
+  background-color: #F3F3F3;
+  .el-menu {
+    position: absolute;
+    border: none;
+    background-color: #fff;
+  }
+  .el-menu-item {
     font-family: Source Han Sans CN;
-    font-size: 17px;
-    letter-spacing: 0px;
-    color: #1A1A1A;
-    cursor: pointer;
-    height: 72px;
-    line-height: 72px;
+    border-radius: 0px 12px 12px 0px;
+    width: 130px;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    height: 71px;
+    background-color: #F3F3F3;
   }
 }
-.el-popper {
-  position: absolute !important;
-  top: 45px !important;
+.active_border {
+  position: absolute;
+  pointer-events: none;
+  left: -5%;
+  width: 16px;
+  height: 3.5px;
+  transform: rotate(-90deg);
+  border-radius: 999px;
+  background: #0052D9;
 }
-.el-icon-arrow-down {
-  font-size: 18px;
-  margin-left: 10px;
+::v-deep .el-menu-item.is-active {
+  color: #0052D9;
+  background-color: #fff !important;
+  border-radius: 0px 12px 12px 0px;
+  // border-left: 2px solid blue;
 }
-.el-tabs {
+::v-deep .el-menu-item:hover{
+  outline: 0 !important;
+  border-radius: 0;
+}
+::v-deep .el-icon-mock {
+  pointer-events: none;
+  background: url('../assets/images/mock.png') center no-repeat;
+  font-size: 20px;
+}
+::v-deep .el-icon-mock:before {
+  pointer-events: none;
+  content: "替";
+  font-size: 20px;
+  visibility: hidden;
+}
+::v-deep .el-icon-interfaces {
+  pointer-events: none;
+  background: url('../assets/images/interfaces.png') center no-repeat;
+  font-size: 20px;
+}
+::v-deep .el-icon-interfaces:before {
+  pointer-events: none;
+  content: "替";
+  font-size: 20px;
+  visibility: hidden;
+}
+.right {
   float: left;
-  height: 100%;
-  ::v-deep .el-tabs__nav {
-    border: none;
-    height: 100%;
-  }
-  ::v-deep .el-tabs__header {
-    border: none;
-    margin-bottom: 0;
-  }
-  ::v-deep .el-tabs__item.is-active {
-    border: none;
-  }
-  ::v-deep .el-tabs__item {
-    border: none;
-    height: 100%;
-  }
+  margin-top: 1px;
+  height: 707px;
+  width: 1470px;
 }
-.el-tabs__active-bar{
-  background-color: transparent !important;
-}
-.el-tabs__nav-wrap::after{
-  position:static !important;
-}
-// .el-tabs__item:last-child::after {
-
-// }
 </style>
