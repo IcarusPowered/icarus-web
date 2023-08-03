@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/views/Home/Navbar.vue'
 export default {
   name: 'Home',
   components: {
@@ -58,7 +58,7 @@ export default {
 .aside_bar {
   float: left;
   margin-top: 1px;
-  height: 707px;
+  height: 736px;
   width: 130px;
   background-color: #F3F3F3;
   .el-menu {
@@ -100,7 +100,7 @@ export default {
 }
 ::v-deep .el-icon-mock {
   pointer-events: none;
-  background: url('../assets/images/mock.png') center no-repeat;
+  background: url('@/assets/images/mock.png') center no-repeat;
   font-size: 20px;
 }
 ::v-deep .el-icon-mock:before {
@@ -111,7 +111,7 @@ export default {
 }
 ::v-deep .el-icon-interfaces {
   pointer-events: none;
-  background: url('../assets/images/interfaces.png') center no-repeat;
+  background: url('@/assets/images/interfaces.png') center no-repeat;
   font-size: 20px;
 }
 ::v-deep .el-icon-interfaces:before {
@@ -124,6 +124,6 @@ export default {
   float: left;
   margin-top: 1px;
   height: 707px;
-  width: 1470px;
+  width: 1529px;
 }
 </style>

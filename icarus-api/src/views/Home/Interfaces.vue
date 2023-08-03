@@ -169,10 +169,10 @@ export default {
 }
 </script>
 <style scoped lang='less'>
-@import url('../assets/style/method.less');
+@import url('@/assets/style/method.less');
 .interfaces {
   float: left;
-  height: 100%;
+  height: 736px;
   width: 100%;
   &_search {
     float: left;

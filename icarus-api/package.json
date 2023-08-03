@@ -10,8 +10,8 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.13",
+    "lib-flexible": "^0.3.2",
     "postcss-px2rem": "^0.3.0",
-    "px2rem-loader": "^0.1.9",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
@@ -33,6 +33,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
+    "postcss-pxtorem": "^6.0.0",
+    "px2rem-loader": "^0.1.9",
     "vue-template-compiler": "^2.6.14"
   }
 }

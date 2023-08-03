@@ -13,7 +13,7 @@ import './helper/registerElementComponents.js'
 
 import router from './router'
 import store from './store'
-import './utils/rem.js'
+import 'lib-flexible/flexible.js'
 
 Vue.config.productionTip = false
 

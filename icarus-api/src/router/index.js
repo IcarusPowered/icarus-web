@@ -7,29 +7,23 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Home/Home.vue'),
     redirect: '/home/personal/mock',
     children: [
       {
         path: '/home/personal/mock',
         name: 'Mock',
         key: 1,
-        component: () => import('@/views/Mock.vue'),
+        component: () => import('@/views/Home/Mock.vue'),
       },
       {
         path: '/home/personal/interfaces',
         name: 'Interfaces',
         key: 2,
-        component: () => import('@/views/Interfaces.vue'),
+        component: () => import('@/views/Home/Interfaces.vue'),
       }
     ]
   },
-  {
-    // 登录
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/views/Login.vue'),
-  }
 ]
 
 const router = new VueRouter({

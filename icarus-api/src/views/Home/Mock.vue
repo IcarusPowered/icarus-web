@@ -19,5 +19,6 @@ export default {
 /* @import url(); 引入公共css类 */
 .mock {
   background-color: red;
+  font-size: 16px;
 }
 </style>
