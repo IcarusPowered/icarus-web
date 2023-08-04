@@ -46,6 +46,10 @@ export default {
     async handleLogin () {
       // 登录
       // window.location.href = 'https://www.nestsid.com/login'
+      // const res = {
+      //   data: ''
+      // }
+      // this.$store.commit('user/setUserInfo', res.data)
     }
   },
   created () {},
