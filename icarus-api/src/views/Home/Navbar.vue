@@ -20,10 +20,10 @@
         <el-tab-pane label="导航页签四" name="fourth"></el-tab-pane>
         <el-tab-pane label="导航页签五" name="fiveth"></el-tab-pane>
       </el-tabs>
-      <el-button class="invite" icon="el-icon-vector">邀请协作</el-button>
-      <el-button class="logreg" v-if="isLogin" @click.native="handleLogin()">注册 / 登录</el-button>
-      <el-avatar :size="50" :src="circleUrl" v-else></el-avatar>
       <el-button icon="el-icon-plus" class="add">新建</el-button>
+      <el-button class="logreg" v-if="isLogin" @click.native="handleLogin()">注册 / 登录</el-button>
+      <el-avatar :size="50" :src="circleUrl" v-else/>
+      <el-button class="invite" icon="el-icon-vector">邀请协作</el-button>
     </div>
   </div>
 </template>
@@ -58,7 +58,9 @@ export default {
 <style scoped lang='less'>
 /* @import url(); 引入公共css类 */
 .navbar {
-  float: left;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr repeat(3, max-content);
+  overflow: hidden;
   width: 100%;
   height: 72px;
   opacity: 1;

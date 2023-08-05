@@ -261,35 +261,35 @@ export default {
     height: 50px;
     // background-color: yellow;
     &_bar {
-      float: left;
+      display: flex;
+      overflow-x: auto;
       width: 100%;
       cursor: pointer;
       box-sizing: border-box;
       &_method{
-        float: left;
-        width: 50%;
+        display: grid;
+        grid-template-areas: "method name"
+        "underline underline";
+        gap: 20px;
         height: 50px;
+        flex: 1;
         line-height: 50px;
-        text-align: center;
         font-family: Source Han Sans CN;
         font-size: 16px;
         font-weight: bold;
         border: 2px solid #E7E7E7;
         .project_method {
-          float: left;
+          grid-area: method;
+          text-align: right;
           pointer-events: none;
-          margin-left: 210px;
-          height: 47px;
-          line-height: 47px;
         }
         .project_name {
-          float: left;
+          text-align: left;
+          grid-area: name;
           pointer-events: none;
-          margin-left: 13px;
-          height: 47px;
-          line-height: 47px;
         }
         .active_underline {
+          grid-area: underline;
           position: relative;
           left: 278px;
           top: 45px;
