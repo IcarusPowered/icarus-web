@@ -23,38 +23,38 @@
           node-key="id"
           @node-click="handleNodeClick"
           >
-          <span slot-scope="{ node, data }" class="custom-tree-node">
-            <span v-show="data.label" class="el-icon"><i class="el-icon-folder" v-if="!data.method"></i></span>
-            <span
-              class="method"
-              :class="[
-                {
-                  'POST': data.method === 'POST',
-                },
-                {
-                  'GET': data.method === 'GET',
-                },
-                {
-                  'DELET': data.method === 'DELET',
-                },
-                {
-                  'PUT': data.method === 'PUT',
-                },
-                {
-                  'PATCH': data.method === 'PATCH',
-                },
-                {
-                  'HEAD': data.method === 'HEAD',
-                },
-                {
-                  'OPTION': data.method === 'OPTION',
-                },]"
-              >
-              {{ data.method }}
+            <span slot-scope="{ node, data }" class="custom-tree-node">
+              <span v-show="data.label" class="el-icon"><i class="el-icon-folder" v-if="!data.method"></i></span>
+              <span
+                class="method"
+                :class="[
+                  {
+                    'POST': data.method === 'POST',
+                  },
+                  {
+                    'GET': data.method === 'GET',
+                  },
+                  {
+                    'DELET': data.method === 'DELET',
+                  },
+                  {
+                    'PUT': data.method === 'PUT',
+                  },
+                  {
+                    'PATCH': data.method === 'PATCH',
+                  },
+                  {
+                    'HEAD': data.method === 'HEAD',
+                  },
+                  {
+                    'OPTION': data.method === 'OPTION',
+                  },]"
+                >
+                {{ data.method }}
+              </span>
+              <span class="name">{{ node.label }}</span>
             </span>
-            <span class="name">{{ node.label }}</span>
-          </span>
-        </el-tree>
+          </el-tree>
         </div>
       </div>
     </div>
@@ -262,34 +262,34 @@ export default {
     // background-color: yellow;
     &_bar {
       display: flex;
+      flex-flow: row wrap;
       width: 100%;
       cursor: pointer;
       box-sizing: border-box;
       &_method{
-        display: grid;
-        grid-template-areas: "method name icon"
-        "underline underline underline";
-        grid-template-columns: repeat(1fr, 2) max-content;
-        gap: 10px;
-        height: 50px;
         flex: 1;
+        display: grid;
+        grid-template-areas: ". project_method project_name icon";
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        grid-gap: 10px;
+        height: 50px;
         line-height: 50px;
         font-family: Source Han Sans CN;
         font-size: 16px;
         font-weight: bold;
         border: 2px solid #E7E7E7;
         .project_method {
-          grid-area: method;
+          grid-area: project_method;
           text-align: right;
           pointer-events: none;
         }
         .project_name {
+          grid-area: project_name;
           text-align: left;
-          grid-area: name;
           pointer-events: none;
         }
         .active_underline {
-          grid-area: underline;
           position: relative;
           left: 278px;
           top: 45px;
@@ -310,10 +310,8 @@ export default {
 }
 .el-icon-close {
   grid-area: icon;
-  float: right;
+  text-align: center;
   font-size: 18px;
-  margin: 14px 0;
-  margin-right: 20px;
   pointer-events: none;
 }
 </style>

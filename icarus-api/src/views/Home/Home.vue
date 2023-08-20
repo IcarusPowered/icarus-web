@@ -55,6 +55,7 @@ export default {
 </script>
 <style scoped lang="less">
 .container {
+  overflow-y: hidden;
   display: grid;
   grid-template-rows: max-content 1fr;
 }
