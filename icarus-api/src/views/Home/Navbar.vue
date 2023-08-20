@@ -60,7 +60,7 @@ export default {
   grid-template-columns: max-content max-content 1fr repeat(3, max-content);
   overflow: hidden;
   width: 100%;
-  height: 72px;
+  height: max-content;
   opacity: 1;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.15);
   .logo {

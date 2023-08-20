@@ -1,30 +1,31 @@
 <template>
   <div class="container">
     <Navbar />
-    <div class="aside_bar">
-      <el-menu
-        router
-        :default-active="activeIndex"
-        class="el-menu-vertical-demo"
-        background-color="#F5F5F5"
-        text-color="black"
-      >
-        <el-menu-item index="/home/personal/mock" class="aside_bar_mock bar">
-          <div class="active_border" v-show="activeIndex==='/home/personal/mock'"></div>
-          <i class="el-icon-mock"></i>
-          <span slot="title" style="pointer-events: none;">Mock</span>
-        </el-menu-item>
-        <el-menu-item index="/home/personal/interfaces" class="aside_bar_interfaces bar">
-          <div class="active_border" v-show="activeIndex==='/home/personal/interfaces'"></div>
-          <i class="el-icon-interfaces"></i>
-          <span slot="title" style="pointer-events: none;">接口集</span>
-        </el-menu-item>
-      </el-menu>
-    </div>
-    <div class="right">
-      <transition appear>
-        <router-view :key="$route.path"></router-view>
-      </transition>
+    <div class="panel">
+      <div class="aside_bar">
+        <el-menu
+          router
+          :default-active="activeIndex"
+          background-color="#F5F5F5"
+          text-color="black"
+        >
+          <el-menu-item index="/home/personal/mock" class="aside_bar_mock bar">
+            <div class="active_border" v-show="activeIndex==='/home/personal/mock'"></div>
+            <i class="el-icon-mock"></i>
+            <span slot="title" style="pointer-events: none;">Mock</span>
+          </el-menu-item>
+          <el-menu-item index="/home/personal/interfaces" class="aside_bar_interfaces bar">
+            <div class="active_border" v-show="activeIndex==='/home/personal/interfaces'"></div>
+            <i class="el-icon-interfaces"></i>
+            <span slot="title" style="pointer-events: none;">接口集</span>
+          </el-menu-item>
+        </el-menu>
+      </div>
+      <div class="right">
+        <transition appear>
+          <router-view :key="$route.path"></router-view>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -54,19 +55,14 @@ export default {
 </script>
 <style scoped lang="less">
 .container {
-  grid-area: nav;
   display: grid;
-  grid-template-areas: "nav nav"
-  "aside_bar main";
-  grid-template-columns: max-content 1fr;
   grid-template-rows: max-content 1fr;
 }
 .aside_bar {
-  grid-area: aside_bar;
   margin-top: 1px;
-  height: 736px;
-  width: 130px;
   background-color: #F3F3F3;
+  width: 130px;
+  height: 100vh;
   .el-menu {
     position: absolute;
     border: none;
@@ -80,6 +76,7 @@ export default {
     text-align: center;
     align-items: center;
     display: flex;
+    flex-flow: row wrap;
     height: 71px;
     background-color: #F3F3F3;
   }
@@ -127,9 +124,11 @@ export default {
   visibility: hidden;
 }
 .right {
-  grid-area: main;
   margin-top: 1px;
-  height: 707px;
   width: 100%;
+}
+.panel {
+  display: grid;
+  grid-template-columns: max-content 1fr;
 }
 </style>

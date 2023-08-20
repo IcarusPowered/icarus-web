@@ -172,7 +172,7 @@ export default {
 @import url('@/assets/style/method.less');
 .interfaces {
   float: left;
-  height: 736px;
+  height: 100%;
   width: 100%;
   &_search {
     float: left;
@@ -262,7 +262,6 @@ export default {
     // background-color: yellow;
     &_bar {
       display: flex;
-      overflow-x: auto;
       width: 100%;
       cursor: pointer;
       box-sizing: border-box;
