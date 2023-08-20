@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <nav style="grid-area: nav;">
-      <Navbar/>
-    </nav>
-    <div style="grid-area: aside_bar;" class="aside_bar">
+    <Navbar />
+    <div class="aside_bar">
       <el-menu
         router
         :default-active="activeIndex"
@@ -23,11 +21,11 @@
         </el-menu-item>
       </el-menu>
     </div>
-    <main style="grid-area: main;" class="right">
+    <div class="right">
       <transition appear>
         <router-view :key="$route.path"></router-view>
       </transition>
-    </main>
+    </div>
   </div>
 </template>
 
@@ -56,13 +54,15 @@ export default {
 </script>
 <style scoped lang="less">
 .container {
+  grid-area: nav;
   display: grid;
   grid-template-areas: "nav nav"
   "aside_bar main";
-  gap: 0;
   grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 1fr;
 }
 .aside_bar {
+  grid-area: aside_bar;
   margin-top: 1px;
   height: 736px;
   width: 130px;
@@ -127,6 +127,7 @@ export default {
   visibility: hidden;
 }
 .right {
+  grid-area: main;
   margin-top: 1px;
   height: 707px;
   width: 100%;

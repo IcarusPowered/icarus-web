@@ -1,30 +1,28 @@
 <template>
-  <div>
-    <div class="navbar">
-      <div class="logo">
-        <img src="@/assets/images/logo.png" alt="">
-      </div>
-      <el-dropdown trigger="click">
-        <span class="el-dropdown-link">
-          Icarus的项目<i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>xiaoyang的项目</el-dropdown-item>
-          <el-dropdown-item>hanbing的项目</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-      <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
-        <el-tab-pane label="导航页签一" name="first"></el-tab-pane>
-        <el-tab-pane label="导航页签二" name="second"></el-tab-pane>
-        <el-tab-pane label="导航页签三" name="third"></el-tab-pane>
-        <el-tab-pane label="导航页签四" name="fourth"></el-tab-pane>
-        <el-tab-pane label="导航页签五" name="fiveth"></el-tab-pane>
-      </el-tabs>
-      <el-button icon="el-icon-plus" class="add">新建</el-button>
-      <el-button class="logreg" v-if="isLogin" @click.native="handleLogin()">注册 / 登录</el-button>
-      <el-avatar :size="50" :src="circleUrl" v-else/>
-      <el-button class="invite" icon="el-icon-vector">邀请协作</el-button>
+  <div class="navbar">
+    <div class="logo">
+      <img src="@/assets/images/logo.png" alt="">
     </div>
+    <el-dropdown trigger="click">
+      <span class="el-dropdown-link">
+        Icarus的项目<i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>xiaoyang的项目</el-dropdown-item>
+        <el-dropdown-item>hanbing的项目</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
+      <el-tab-pane label="导航页签一" name="first"></el-tab-pane>
+      <el-tab-pane label="导航页签二" name="second"></el-tab-pane>
+      <el-tab-pane label="导航页签三" name="third"></el-tab-pane>
+      <el-tab-pane label="导航页签四" name="fourth"></el-tab-pane>
+      <el-tab-pane label="导航页签五" name="fiveth"></el-tab-pane>
+    </el-tabs>
+    <el-button icon="el-icon-plus" class="add">新建</el-button>
+    <el-button class="logreg" v-if="isLogin" @click.native="handleLogin()">注册 / 登录</el-button>
+    <el-avatar :size="50" :src="circleUrl" v-else/>
+    <el-button class="invite" icon="el-icon-vector">邀请协作</el-button>
   </div>
 </template>
 

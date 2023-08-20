@@ -268,9 +268,10 @@ export default {
       box-sizing: border-box;
       &_method{
         display: grid;
-        grid-template-areas: "method name"
-        "underline underline";
-        gap: 20px;
+        grid-template-areas: "method name icon"
+        "underline underline underline";
+        grid-template-columns: repeat(1fr, 2) max-content;
+        gap: 10px;
         height: 50px;
         flex: 1;
         line-height: 50px;
@@ -309,6 +310,7 @@ export default {
   // border-bottom: none;
 }
 .el-icon-close {
+  grid-area: icon;
   float: right;
   font-size: 18px;
   margin: 14px 0;
